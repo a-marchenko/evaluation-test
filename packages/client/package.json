@@ -1,0 +1,10 @@
+{
+  "name": "client",
+  "version": "1.0.0",
+  "description": "Application frontend",
+  "main": "src/index.ts",
+  "author": "a-marchenko",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}

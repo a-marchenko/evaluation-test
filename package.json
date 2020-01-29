@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "name": "evaluation-test",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-customizable"
+    },
+    "cz-customizable": {
+      "config": "commitizen.config.js"
+    }
+  },
+  "scripts": {
+    "client": "yarn workspace client start",
+    "server": "yarn workspace server start",
+    "start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn client\""
+  },
+  "dependencies": {
+    "concurrently": "^5.1.0"
+  },
+  "devDependencies": {
+    "cz-customizable": "^6.2.0",
+    "typescript": "^3.7.5"
+  }
+}
