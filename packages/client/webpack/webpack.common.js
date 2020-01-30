@@ -18,7 +18,7 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 
 module.exports = {
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.css'],
     modules: [path.resolve(commonPaths.root, 'node_modules')],
   },
   module: {
@@ -48,7 +48,7 @@ module.exports = {
               sourceMap: true,
               modules: {
                 mode: 'local',
-                localIdentName: '[local]',
+                localIdentName: '[name]-[local]',
               },
             },
           },
