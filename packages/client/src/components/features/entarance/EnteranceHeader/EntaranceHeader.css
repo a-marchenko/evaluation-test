@@ -1,0 +1,30 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 3rem 1rem;
+}
+
+.header__title {
+  margin: 0.5rem;
+  font-size: 2rem;
+}
+
+.header__text {
+  margin: 0;
+  font-size: 1.125rem;
+  color: #d0c9d6;
+}
+
+@media screen and (max-width: 480px) {
+  .header {
+    margin: 2.5rem 1rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    margin: 1.5rem 1rem;
+  }
+}
