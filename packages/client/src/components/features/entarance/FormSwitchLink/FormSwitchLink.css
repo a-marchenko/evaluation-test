@@ -1,0 +1,15 @@
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  outline: none;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  color: #d0c9d6;
+  margin: 1.5rem 0 -1rem;
+}
