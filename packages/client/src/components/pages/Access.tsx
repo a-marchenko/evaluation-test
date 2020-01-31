@@ -12,14 +12,19 @@ const Access = () => {
   const query = useQuery();
   const { dispatch } = useStore();
 
-  const rawPath = query.get('target');
-  const path = rawPath ? rawPath.replace('%2F', '/') : '';
+  const enteranceRoutes = ['/login', '/register', '/access'];
+
+  let path = decodeURI(query.get('target'));
+
+  if (path === 'null' || enteranceRoutes.includes(path)) {
+    path = '/home';
+  }
 
   useEffect(() => {
     const fetchAndRedirect = async () => {
       try {
         // try to get new tokens
-        const response = await fetch('/api/auth/refresh', {
+        const response = await fetch('/api/auth/authenticate', {
           method: 'POST',
           credentials: 'include',
         });
@@ -30,6 +35,8 @@ const Access = () => {
           // if ok redirect to requested page
           dispatch({ type: 'UPDATE_ACCESS_TOKEN', accessToken: result.UAT });
           dispatch({ type: 'UPDATE_NAME', name: result.name });
+
+          // if ok redirect to given path
           history.push(path);
         } else {
           // if not ok redirect to login page
@@ -46,11 +53,7 @@ const Access = () => {
 
   return (
     <CenteredLayout>
-      <RedirectMessage
-        title="Authenticating"
-        text="You will be redirected to:"
-        path={path.toString()}
-      />
+      <RedirectMessage title="Authenticating" text="You will be redirected to:" path={path} />
     </CenteredLayout>
   );
 };
