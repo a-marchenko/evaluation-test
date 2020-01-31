@@ -1,5 +1,9 @@
 import { Router } from 'express';
-import { createNewUser, login, refreshTokens, invalidateTokens } from '../services/auth';
+
+import { refreshTokens, invalidateTokens } from '../../services/jwt';
+
+import { createNewUser } from '../controllers/users';
+import { login } from '../controllers/auth';
 
 const authRouter = Router();
 
@@ -60,7 +64,7 @@ authRouter.post('/login', async (req, res) => {
 });
 
 // refresh tokens
-authRouter.post('/refresh', async (req, res) => {
+authRouter.post('/authenticate', async (req, res) => {
   const URT: string | undefined = req.cookies.URT;
 
   if (!URT) {
