@@ -41,3 +41,17 @@
   opacity: 0.6;
   pointer-events: none;
 }
+
+.button__spinner {
+  border: 2px solid #ffffff;
+  border-top-color: #6979f8;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 0.5s linear infinite;
+}
+
+.button__spinner--primary {
+  border: 2px solid #6979f8;
+  border-top-color: #ffffff;
+}
