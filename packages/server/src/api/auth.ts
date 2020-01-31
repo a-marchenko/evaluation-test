@@ -68,7 +68,7 @@ authRouter.post('/refresh', async (req, res) => {
     return res.status(403).send({ ok: false, UAT: '' });
   } else {
     // try to get new UAT and URT
-    const { ok, accessToken, refreshToken } = await refreshTokens(URT);
+    const { ok, accessToken, refreshToken, name } = await refreshTokens(URT);
 
     // set new URT cookie
     res.cookie('URT', refreshToken, {
@@ -77,7 +77,7 @@ authRouter.post('/refresh', async (req, res) => {
     });
 
     // send new UAT
-    return res.status(201).send({ ok: ok, UAT: accessToken });
+    return res.status(201).send({ ok: ok, UAT: accessToken, name: name });
   }
 });
 

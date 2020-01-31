@@ -96,6 +96,7 @@ export const refreshTokens = async (token: string) => {
   let accessToken: string;
   let refreshToken: string;
   let ok: boolean;
+  let name: string;
 
   let payload: AuthPayload;
 
@@ -108,26 +109,31 @@ export const refreshTokens = async (token: string) => {
         ok = true;
         accessToken = createAccessToken(user);
         refreshToken = createRefreshToken(user);
+        name = user.name;
       } else {
         ok = false;
         accessToken = '';
         refreshToken = '';
+        name = '';
       }
     } else {
       ok = false;
       accessToken = '';
       refreshToken = '';
+      name = '';
     }
   } catch {
     ok = false;
     accessToken = '';
     refreshToken = '';
+    name = '';
   }
 
   return {
     ok,
     accessToken,
     refreshToken,
+    name,
   };
 };
 
