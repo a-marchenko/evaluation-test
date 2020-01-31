@@ -5,22 +5,43 @@ import styles from './DefaultButton.css';
 interface Props {
   type: 'button' | 'submit';
   text: string;
-  isDisabled?: boolean;
+  width?: number;
   isPrimary?: boolean;
+  isDisabled?: boolean;
+  isLoading?: boolean;
+  onClick?: React.MouseEventHandler;
 }
 
 const DefaultButton = (props: Props) => {
-  let style = styles.button;
+  let styleClass = styles.button;
   if (props.isPrimary) {
-    style += ' ' + styles.buttonPrimary;
+    styleClass += ' ' + styles.buttonPrimary;
   }
   if (props.isDisabled) {
-    style += ' ' + styles.buttonDisabled;
+    styleClass += ' ' + styles.buttonDisabled;
   }
 
+  let styleWidth = props.width ? { width: props.width + 'px' } : {};
+
   return (
-    <button type={props.type} disabled={props.isDisabled} className={style}>
-      {props.text}
+    <button
+      type={props.type}
+      disabled={props.isDisabled || props.isLoading}
+      onClick={props.onClick}
+      className={styleClass}
+      style={styleWidth}
+    >
+      {props.isLoading ? (
+        <div
+          className={
+            !props.isPrimary
+              ? styles.button__spinner
+              : styles.button__spinner + ' ' + styles.button__spinnerPrimary
+          }
+        ></div>
+      ) : (
+        props.text
+      )}
     </button>
   );
 };
