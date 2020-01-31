@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
-import EntaranceLayout from '../layouts/EnteranceLayout/EntaranceLayout';
-import EntaranceHeader from '../features/entarance/EnteranceHeader/EntaranceHeader';
-import RegisterForm from '../features/entarance/RegisterForm/RegisterForm';
+import CenteredLayout from '../layouts/CenteredLayout/CenteredLayout';
+import EnteranceHeader from '../features/enterance/EnteranceHeader/EnteranceHeader';
+import RegisterForm from '../features/enterance/RegisterForm/RegisterForm';
+
+import { useStore } from '../../state/store';
 
 const Register = () => {
+  const { state } = useStore();
+  const history = useHistory();
+
+  useEffect(() => {
+    if (state.accessToken) {
+      history.push('/home');
+    }
+  }, []);
+
   return (
-    <EntaranceLayout>
-      <EntaranceHeader title="Register an account" text="Please, register an account to use chat" />
+    <CenteredLayout>
+      <EnteranceHeader title="Register an account" text="Please, register an account to use chat" />
       <RegisterForm />
-    </EntaranceLayout>
+    </CenteredLayout>
   );
 };
 
