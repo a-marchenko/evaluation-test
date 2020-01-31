@@ -1,13 +1,13 @@
 import React from 'react';
 
-import styles from './EntaranceHeader.css';
+import styles from './EnteranceHeader.css';
 
 interface Props {
   title: string;
   text: string;
 }
 
-const EntaranceHeader = (props: Props) => {
+const EnteranceHeader = (props: Props) => {
   return (
     <section className={styles.header}>
       <h1 className={styles.header__title}>{props.title}</h1>
@@ -16,4 +16,4 @@ const EntaranceHeader = (props: Props) => {
   );
 };
 
-export default EntaranceHeader;
+export default EnteranceHeader;
