@@ -31,12 +31,6 @@ psql$: grant all privileges on database chat_app to chat_app_owner;
 $ yarn install
 ```
 
-- Соберите клиент
-
-```console
-$ yarn run client
-```
-
 - Запустите сервер
 
 ```console

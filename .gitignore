@@ -7,4 +7,3 @@ temp/
 dump.rdb
 .env
 .DS_Store
-**/dist
