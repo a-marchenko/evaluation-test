@@ -26,7 +26,7 @@ export class Server {
   private app: Application;
   private io: SocketIOServer;
 
-  private readonly DEFAULT_PORT = 5000;
+  private readonly DEFAULT_PORT = process.env.SERVER_PORT || '5000';
   private readonly TLS_CONFIG = {
     cert: fs.readFileSync(path.resolve('cert/', 'localhost.crt')),
     key: fs.readFileSync(path.resolve('cert/', 'localhost.key')),
@@ -184,7 +184,7 @@ export class Server {
     });
   }
 
-  public listen(callback: (port: number) => void): void {
+  public listen(callback: (port: string) => void): void {
     this.httpsServer.listen(this.DEFAULT_PORT, () => callback(this.DEFAULT_PORT));
   }
 }

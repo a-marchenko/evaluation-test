@@ -15,7 +15,7 @@ const startServer = async () => {
 
   await createConnection({
     type: 'postgres',
-    host: 'localhost',
+    host: process.env.DB_HOST || 'localhost',
     port: 5432,
     username: 'chat_app_owner',
     password: 'chat_app_owner_password',
