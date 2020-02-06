@@ -4,7 +4,7 @@ import { User } from '../../db/User';
 
 import { createAccessToken, createRefreshToken } from '../../services/jwt';
 
-export const createNewUser = async (name: string, password: string) => {
+export const createUser = async (name: string, password: string) => {
   let user: User | undefined;
 
   // try to find user with given name

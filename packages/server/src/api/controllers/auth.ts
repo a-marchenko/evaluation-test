@@ -8,9 +8,12 @@ export const login = async (name: string, password: string) => {
   let user: User | undefined;
 
   // try to find user with given name
-  user = await User.findOne({ where: { name: name } });
+  user = await User.findOne({
+    select: ['id', 'name', 'password', 'token_version'],
+    where: { name: name },
+  });
 
-  // throw error if incorrectname given
+  // throw error if incorrect name given
   if (!user) {
     throw new Error('Incorrect name or password');
   }
