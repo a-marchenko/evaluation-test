@@ -27,7 +27,7 @@ const MainLayout = (props: Props) => {
         <ChatRoomListModal isShowing={isShowing} hide={toggle}>
           <ChatRoomsAside />
         </ChatRoomListModal>
-        <UserFigure name={state.name} />
+        <UserFigure name={state.name} isCentered />
         <LogoutButton />
       </header>
       <aside className={styles.aside}>

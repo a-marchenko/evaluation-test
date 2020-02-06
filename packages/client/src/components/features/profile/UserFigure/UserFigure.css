@@ -5,6 +5,10 @@
   width: 160px;
 }
 
+.user--centered {
+  justify-content: center;
+}
+
 .user__avatar {
   display: table;
   height: 40px;

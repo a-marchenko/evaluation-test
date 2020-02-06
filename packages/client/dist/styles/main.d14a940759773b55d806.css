@@ -658,6 +658,10 @@ body {
   width: 160px;
 }
 
+.UserFigure-user--centered {
+  justify-content: center;
+}
+
 .UserFigure-user__avatar {
   display: table;
   height: 40px;
