@@ -2,7 +2,7 @@ import { Router } from 'express';
 
 import { refreshTokens, invalidateTokens } from '../../services/jwt';
 
-import { createNewUser } from '../controllers/users';
+import { createUser } from '../controllers/users';
 import { login } from '../controllers/auth';
 
 const authRouter = Router();
@@ -14,12 +14,12 @@ authRouter.post('/register', async (req, res) => {
 
   // fail if no crededentials in req.body
   if (!name || !password) {
-    return res.status(403).send({ ok: false, message: 'No credentials specified!' });
+    return res.status(403).send({ ok: false, message: 'Wrong credentials' });
   }
 
   // try to create user with given credentials and get UAT and URT
   try {
-    const { accessToken, refreshToken } = await createNewUser(name, password);
+    const { accessToken, refreshToken } = await createUser(name, password);
 
     // set refresh token to cookie
     res.cookie('URT', refreshToken, {
@@ -31,7 +31,7 @@ authRouter.post('/register', async (req, res) => {
     return res.status(201).send({ ok: true, UAT: accessToken });
   } catch (err) {
     // fail if any thrown error
-    return res.status(403).send({ ok: false, message: err.toString() });
+    return res.status(403).send({ ok: false, message: err.message });
   }
 });
 
@@ -42,7 +42,7 @@ authRouter.post('/login', async (req, res) => {
 
   // fail if no crededentials in req.body
   if (!name || !password) {
-    return res.status(403).send({ ok: false, message: 'No credentials specified!' });
+    return res.status(403).send({ ok: false, message: 'Wrong credentials' });
   }
 
   // try to find user with given credentials and get UAT and URT
@@ -59,7 +59,7 @@ authRouter.post('/login', async (req, res) => {
     return res.status(201).send({ ok: true, UAT: accessToken });
   } catch (err) {
     // fail if any thrown error
-    return res.status(403).send({ ok: false, message: err.toString() });
+    return res.status(403).send({ ok: false, message: err.message });
   }
 });
 
@@ -91,7 +91,7 @@ authRouter.post('/logout', async (req, res) => {
 
   if (!URT) {
     // fail if no cookie with token found
-    return res.status(403).send({ ok: false, message: 'No token provided' });
+    return res.status(403).send({ ok: false, message: 'Wrong credentials' });
   } else {
     // try invalidate existing tokens
     const { ok, message } = await invalidateTokens(URT);
