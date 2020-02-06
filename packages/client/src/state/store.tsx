@@ -5,14 +5,24 @@ import React, { createContext, useContext, useReducer, Dispatch, ReactElement } 
  * Declare types
  *
  */
+
+type ChatRoom = {
+  id: number;
+  name: string;
+};
+
 export interface State {
   accessToken: string | null;
   name: string | null;
+  chatRooms: ChatRoom[];
+  toggledChatId: number | null;
 }
 
 type Action =
   | { type: 'UPDATE_ACCESS_TOKEN'; accessToken: string | null }
-  | { type: 'UPDATE_NAME'; name: string | null };
+  | { type: 'UPDATE_NAME'; name: string | null }
+  | { type: 'UPDATE_CHAT_ROOMS'; chatRooms: ChatRoom[] }
+  | { type: 'UPDATE_TOGGLED_CHAT_ID'; toggledChatId: number | null };
 
 type Reducer<S, A> = (state: S, action: A) => S;
 
@@ -28,7 +38,7 @@ interface Props {
  *
  */
 
-const initialState: State = { accessToken: null, name: null };
+const initialState: State = { accessToken: null, name: null, chatRooms: [], toggledChatId: null };
 
 // main reducer
 const reducer: Reducer<State, Action> = (state, action) => {
@@ -37,8 +47,12 @@ const reducer: Reducer<State, Action> = (state, action) => {
       return { ...state, accessToken: action.accessToken };
     case 'UPDATE_NAME':
       return { ...state, name: action.name };
+    case 'UPDATE_CHAT_ROOMS':
+      return { ...state, chatRooms: action.chatRooms };
+    case 'UPDATE_TOGGLED_CHAT_ID':
+      return { ...state, toggledChatId: action.toggledChatId };
     default:
-      throw new Error('Unhandled action type!');
+      throw new Error('Unhandled action type');
   }
 };
 
