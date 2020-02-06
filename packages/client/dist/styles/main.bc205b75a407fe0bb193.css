@@ -492,7 +492,7 @@ body {
   display: flex;
   justify-items: flex-start;
   align-items: center;
-  height: 56px;
+  height: 64px;
   margin: 0;
   padding: 0 1.5rem;
   text-align: center;
@@ -1146,7 +1146,6 @@ body {
   justify-content: center;
   width: 48px;
   height: 48px;
-  margin: 2rem auto;
   border: none;
   border-radius: 50%;
   outline: none;
