@@ -1,12 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 
+import PrivateRoute from './PrivateRoute';
 import Login from '../pages/Login';
 import Register from '../pages/Register';
 import Access from '../pages/Access';
 import NotFound from '../pages/NotFound';
 import Home from '../pages/Home';
-import PrivateRoute from './PrivateRoute';
+import JoinFailed from '../pages/JoinFailed';
+import Chat from '../pages/Chat';
 
 const Router = () => {
   return (
@@ -24,6 +26,12 @@ const Router = () => {
         <PrivateRoute path="/home">
           <Home />
         </PrivateRoute>
+        <PrivateRoute path="/chat/:id">
+          <Chat />
+        </PrivateRoute>
+        <Route path="/join_failed">
+          <JoinFailed />
+        </Route>
         <Route
           path="/"
           exact={true}

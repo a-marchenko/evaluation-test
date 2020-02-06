@@ -13,7 +13,7 @@ const PrivateRoute: FC<RouteProps> = ({ children, ...rest }) => {
         state.accessToken ? (
           children
         ) : (
-          <Redirect to={`/access?target=${encodeURI(location.pathname)}`} />
+          <Redirect to={`/access?target=${encodeURI(location.pathname + location.search)}`} />
         )
       }
     />
