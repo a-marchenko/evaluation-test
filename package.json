@@ -2,8 +2,7 @@
   "private": true,
   "name": "evaluation-test",
   "workspaces": [
-    "client",
-    "server"
+    "packages/*"
   ],
   "config": {
     "commitizen": {
@@ -14,9 +13,8 @@
     }
   },
   "scripts": {
-    "client": "yarn workspace client start",
-    "server": "yarn workspace server start",
-    "start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn client\""
+    "client": "yarn workspace client build",
+    "server": "yarn workspace server start"
   },
   "dependencies": {
     "concurrently": "^5.1.0"
