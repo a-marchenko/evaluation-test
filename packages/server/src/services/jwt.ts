@@ -2,13 +2,7 @@ import { sign, verify } from 'jsonwebtoken';
 
 import { User } from '../db/User';
 
-/**
- *
- * JWT
- *
- * */
-
-interface AuthPayload {
+export interface AuthPayload {
   id: number;
   name: string;
   tokenVersion: number;
@@ -45,7 +39,7 @@ export const refreshTokens = async (token: string) => {
   try {
     payload = verify(token, refreshSecret) as AuthPayload;
 
-    const user = await User.findOne(payload.id);
+    const user = await User.findOne(payload.id, { select: ['id', 'name', 'token_version'] });
     if (user) {
       if (user.token_version === payload.tokenVersion) {
         ok = true;
@@ -88,7 +82,7 @@ export const invalidateTokens = async (token: string) => {
   try {
     payload = verify(token, refreshSecret) as AuthPayload;
 
-    const user = await User.findOne(payload.id);
+    const user = await User.findOne(payload.id, { select: ['id', 'name', 'token_version'] });
     if (user) {
       try {
         await User.update(user.id, { token_version: user.token_version + 1 });
