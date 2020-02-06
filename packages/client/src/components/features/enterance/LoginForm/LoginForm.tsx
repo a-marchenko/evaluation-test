@@ -45,7 +45,7 @@ const LoginForm = () => {
         history.push('/home');
       } else if (result.message) {
         setIsLoading(false);
-        setSubmitError(result.message.split('Error: ')[1]);
+        setSubmitError(result.message);
       } else {
         setIsLoading(false);
         setSubmitError('Something went wrong :(');
