@@ -7,15 +7,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const commonPaths = require('./paths');
 
-// call dotenv and it will return an Object with a parsed key
-const env = dotenv.config().parsed;
-
-// reduce it to a nice object
-const envKeys = Object.keys(env).reduce((prev, next) => {
-  prev[`process.env.${next}`] = JSON.stringify(env[next]);
-  return prev;
-}, {});
-
 module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.json', '.css'],
@@ -79,7 +70,6 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.DefinePlugin(envKeys),
     new WebpackBar(),
     new MiniCssExtractPlugin({
       filename: 'styles/[name].[hash].css',
