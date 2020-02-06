@@ -1,0 +1,65 @@
+.message {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.message--owned {
+  flex-direction: row;
+}
+
+.message__avatar {
+  display: table;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  text-align: center;
+  text-transform: capitalize;
+  color: #ffffff;
+  background-color: #6979f8;
+}
+
+.avatar__label {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.message__content {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem 0.75rem;
+}
+
+.content__text {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  height: 24px;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ececec;
+  border-radius: 12px 12px 0 12px;
+  color: #1a051d;
+  height: auto;
+  width: auto;
+  max-width: 280px;
+  word-wrap: anywhere;
+}
+
+.content__text--owned {
+  justify-content: flex-start;
+  border: none;
+  border-radius: 12px 12px 12px 0px;
+  background-color: #ecebed;
+}
+
+.content__date {
+  height: 24px;
+  margin: 0.5rem 0 0;
+  font-size: 0.75rem;
+  color: #d0c9d6;
+}

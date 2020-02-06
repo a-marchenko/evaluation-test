@@ -1,0 +1,71 @@
+.container {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'main'
+    'footer';
+  grid-template-rows: 64px auto 64px;
+  grid-template-columns: auto;
+  height: 100%;
+  width: 100%;
+  color: #1a051d;
+  background-color: #ffffff;
+}
+
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 64px;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.main {
+  grid-area: main;
+  display: grid;
+  grid-template-areas:
+    'video'
+    'messages';
+  grid-template-rows: auto 300px;
+  grid-template-columns: auto;
+  height: 100%;
+  color: #1a051d;
+  background-color: #ffffff;
+}
+
+.main__video {
+  grid-area: video;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  background: #686868;
+}
+
+.main__messages {
+  grid-area: messages;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 100%;
+}
+
+.form {
+  grid-area: footer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1.5rem;
+  height: 64px;
+  font-size: 1.25rem;
+  text-align: center;
+  color: #d0c9d6;
+  background: #ffffff;
+  box-shadow: 0 -1px rgba(0, 0, 0, 0.05);
+}

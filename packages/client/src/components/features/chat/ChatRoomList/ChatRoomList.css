@@ -1,0 +1,29 @@
+.chat-room-list {
+  display: flex;
+  flex-direction: column;
+  justify-items: flex-start;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.chat-room-list__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 68px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.chat-room-list__blank {
+  padding: 1rem 0;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #d0c9d6;
+}

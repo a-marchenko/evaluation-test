@@ -1,0 +1,27 @@
+.stream-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  margin: 2rem auto;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  color: #ffffff;
+  background: #6979f8;
+  cursor: pointer;
+  transition: transform ease 0.35s;
+  z-index: 100;
+  position: absolute;
+}
+
+.stream-action:hover {
+  transform: scale(1.1);
+}
+
+.stream-action__icon {
+  width: 24px;
+  height: 24px;
+  fill: #ffffff;
+}

@@ -1,0 +1,21 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  max-width: 200px;
+  background: #ffffff;
+}
+
+.form__error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  color: #f44336;
+  margin: -1.5em 0 1.5rem;
+}

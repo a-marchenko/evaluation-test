@@ -1,0 +1,30 @@
+.chat-room-item {
+  display: flex;
+  justify-items: flex-start;
+  align-items: center;
+  height: 56px;
+  margin: 0;
+  padding: 0 1.5rem;
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  background-color: #ffffff;
+}
+
+.chat-room-item--toggled {
+  background-color: #e5e7fa;
+}
+
+.chat-room-item__icon {
+  height: 28px;
+  width: 28px;
+  fill: #a5affb;
+}
+
+.chat-room-item__name {
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,10 @@
+.messages__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0;
+  margin-top: auto;
+  overflow-x: auto;
+  overflow-y: scroll;
+  width: 100%;
+}
