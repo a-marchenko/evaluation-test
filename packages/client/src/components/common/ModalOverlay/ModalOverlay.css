@@ -1,0 +1,26 @@
+@keyframes fade-modal-overlay {
+  0% {
+    -webkit-transform: translateZ(80px);
+    transform: translateZ(80px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    opacity: 0.65;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000000;
+  opacity: 0.65;
+  cursor: pointer;
+  -webkit-animation: fade-modal-overlay 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  animation: fade-modal-overlay 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
