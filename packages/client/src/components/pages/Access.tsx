@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 
 import CenteredLayout from '../layouts/CenteredLayout/CenteredLayout';
-import RedirectMessage from '../features/redirect/RedirectMessage/RedirectMessage';
+import RedirectMessage from '../features/message/RedirectMessage/RedirectMessage';
 
 import useQuery from '../../hooks/useQuery';
 import { useStore } from '../../state/store';
@@ -32,7 +32,7 @@ const Access = () => {
         const result = await response.json();
 
         if (result.ok && result.UAT && result.name) {
-          // if ok redirect to requested page
+          // if ok set state values
           dispatch({ type: 'UPDATE_ACCESS_TOKEN', accessToken: result.UAT });
           dispatch({ type: 'UPDATE_NAME', name: result.name });
 

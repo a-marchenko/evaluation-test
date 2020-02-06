@@ -2,7 +2,7 @@ import React from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
 import CenteredLayout from '../layouts/CenteredLayout/CenteredLayout';
-import RedirectMessage from '../features/redirect/RedirectMessage/RedirectMessage';
+import RedirectMessage from '../features/message/RedirectMessage/RedirectMessage';
 import DefaultButton from '../common/DefaultButton/DefaultButton';
 
 const NotFound = () => {
@@ -15,7 +15,7 @@ const NotFound = () => {
       <DefaultButton
         type="button"
         text="Go to homepage"
-        onClick={() => history.push('/')}
+        onClick={() => history.push('/home')}
         width={240}
         isPrimary
       />
