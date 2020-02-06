@@ -7,7 +7,7 @@
     "outDir": "./build",
     "moduleResolution": "node",
     "removeComments": true,
-    "noImplicitAny": true,
+    "noImplicitAny": false,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
     "noImplicitThis": true,
@@ -23,8 +23,5 @@
     "baseUrl": "."
   },
   "exclude": ["node_modules"],
-  "include": [
-    "./src/**/*.tsx",
-    "./src/**/*.ts",
-  ]
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"]
 }

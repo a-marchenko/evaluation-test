@@ -7,9 +7,11 @@ import { createConnection } from 'typeorm';
 
 // DB entities
 import { User } from './db/User';
+import { ChatRoom } from './db/ChatRoom';
+import { ChatMessage } from './db/ChatMessage';
 
 const startServer = async () => {
-  const entities = [User];
+  const entities = [User, ChatRoom, ChatMessage];
 
   await createConnection({
     type: 'postgres',
