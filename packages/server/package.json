@@ -11,7 +11,7 @@
     "start:dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
   },
   "dependencies": {
-    "bcrypt": "^3.0.7",
+    "bcrypt": "^5.0.0",
     "chalk": "^3.0.0",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.2.0",
